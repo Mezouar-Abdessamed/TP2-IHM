@@ -1,1 +1,13 @@
 
+package mainn;
+
+import javax.swing.JFrame;
+
+
+public class SecondaryFrame extends JFrame {
+    SecondaryFrame(){
+        this.setSize(1000, 500);
+        this.setTitle("Read message");
+        this.setDefaultCloseOperation(HIDE_ON_CLOSE);
+    }
+}
