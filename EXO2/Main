@@ -1,1 +1,59 @@
 
+
+package mainn;
+
+import javax.swing.*;
+
+
+public class Mainn {
+
+
+    public static void main(String[] args) {
+        MainFrame window=new MainFrame();
+        SecondaryFrame window2=new SecondaryFrame();
+
+        
+        JPanel body=new JPanel();
+        body.setLayout(null);
+        window.add(body);
+        
+        JPanel body2=new JPanel();
+        body2.setLayout(null);
+        window.add(body2);
+        
+        JLabel title=new  JLabel("SEND UR MSSG (:");
+        title.setBounds(340, 50, 200, 100);
+        body.add(title);
+        
+        JLabel title2=new  JLabel("u reseved a message (:");
+        title2.setBounds(340, 50, 200, 100);
+        body2.add(title2);
+        
+        
+        
+        JTextField msg = new JTextField();
+        msg.setBounds(40, 200, 700, 250);
+        body.add(msg);
+        
+        JTextArea newmsg = new JTextArea();
+        newmsg.setBounds(100, 150, 750, 300);
+        newmsg.setEditable(false);
+        body2.add(newmsg);
+        
+        JButton send=new JButton("send");
+        send.setBounds(40,480,700,40);
+        body.add(send);
+        
+       
+        
+        send.addActionListener(e -> {
+        newmsg.append(msg.getText() + "\n");
+        msg.setText("");
+        window2.add(body2);
+        window2.setVisible(true);});
+        
+        window.add(body);
+         window.setVisible(true); 
+    }
+    
+}
