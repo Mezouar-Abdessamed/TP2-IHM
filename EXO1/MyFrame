@@ -1,1 +1,13 @@
 
+package tp2exo1;
+
+import javax.swing.JFrame;
+
+class MyFrame extends JFrame {
+    MyFrame(){
+        this.setSize(800, 800);
+        this.setTitle("TP2 EXO1");
+        this.setDefaultCloseOperation(EXIT_ON_CLOSE);
+    }
+}
+
