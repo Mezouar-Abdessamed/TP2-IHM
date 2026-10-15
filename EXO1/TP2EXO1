@@ -1,1 +1,89 @@
 
+
+package tp2exo1;
+
+import java.awt.Color;
+import java.awt.event.*;
+import javax.swing.*;
+
+
+public class TP2EXO1 {
+
+  
+    public static void main(String[] args) {
+        MyFrame window = new MyFrame();
+        
+        JPanel body = new JPanel();
+        body.setLayout(null);
+        body.setBackground(new Color(205,205,205));
+        
+        JLabel title = new JLabel("Choisir une couleur ... ");
+        title.setBounds(300, 20, 300, 20);
+        title.setForeground(Color.blue);
+        body.add(title);
+        
+        String[] colors = {"red","yellow","green"};
+        JComboBox<String> chooseColor = new JComboBox <> (colors);
+        chooseColor.setBounds(600, 100, 180, 30);
+        body.add(chooseColor);
+        
+        JPanel redC = new JPanel();
+        redC.setBounds(50, 100, 50, 20);
+        redC.setBackground(Color.red);
+        body.add(redC);
+        
+        JPanel yellowC = new JPanel();
+        yellowC.setBounds(50, 135, 50, 20);
+        yellowC.setBackground(Color.yellow);
+        body.add(yellowC);
+        
+        JPanel greenC = new JPanel();
+        greenC.setBounds(50, 170, 50, 20);
+        greenC.setBackground(Color.green);
+        body.add(greenC);
+        
+        JPanel center= new JPanel();
+        center.setBounds(100, 250, 600, 250);
+        body.add(center);
+        
+        JButton btn = new JButton("default");
+        btn.setBounds(350, 520, 100, 35);
+        body.add(btn);
+        
+        chooseColor.addActionListener(e -> {
+        String choice=(String) chooseColor.getSelectedItem();
+        switch(choice){
+            case "red": center.setBackground(Color.red);break;
+            case "yellow": center.setBackground(Color.yellow);break;
+            case "green" : center.setBackground(Color.green);
+        }});
+        
+        btn.addActionListener(e -> {
+        center.setBackground(Color.white);});
+        
+        window.add(body);
+        window.setVisible(true);
+        
+        redC.addMouseListener(new MouseAdapter(){
+        @Override
+        public void mouseEntered(MouseEvent e){
+            center.setBackground(Color.red);
+        }});
+        
+        yellowC.addMouseListener(new MouseAdapter(){
+        @Override
+        public void mouseEntered(MouseEvent e){
+            center.setBackground(Color.yellow);
+        }});
+        
+        greenC.addMouseListener(new MouseAdapter(){
+        @Override
+        public void mouseEntered(MouseEvent e){
+            center.setBackground(Color.green);
+        }});
+        
+        
+        
+    }
+    
+}
